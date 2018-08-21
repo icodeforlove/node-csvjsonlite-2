@@ -47,27 +47,6 @@ describe('CSV to JSON', function(){
 
     })
 
-    describe('Detect and Handle HTTP CSV Data', function(){
-        var validUrl    = 'http://real-chart.finance.yahoo.com/table.csv?s=AAPL&a=11&b=12&c=2014&d=02&e=29&f=2015&g=d&ignore=.csv';
-        var validUrl2   = 'http://www-01.ibm.com/support/knowledgecenter/api/content/nl/en-us/SVU13_7.2.1/com.ibm.ismsaas.doc/reference/UsersImportCompleteSample.csv';
-        var invalidUrl  = 'http://real-charhoo.com/table.csv?s=AAPL&a=11&b=12&c=2014&d=02&e=29&f=2015&g=d&ignore=.csv';
-        var validHTTPS  = 'https://docs.shopify.com/manual/your-store/products/product_template.csv';
-
-        it('should retrieve data from valid HTTP URL',
-            _handleCSVAsURL__returnValidOnlineCSVURL(validUrl));
-
-        it('should retrieve data from another valid HTTP URL',
-            _handleCSVAsURL__returnValidOnlineCSVURL(validUrl2));
-
-
-        this.timeout(4000);
-        it('should retrieve data from valid HTTPS URL',
-            _handleCSVAsURL__returnValidOnlineCSVURL(validHTTPS));
-
-        it('should not retrieve data from invalid CSV URL',
-            _handleCSVAsURL__returnInvalidOnlineCSVURL(invalidUrl));
-    })
-
     describe('Detect and Handle String CSV Data ', function(){
         var handleStringCSV = 'Date,Value\n3,4\n5,6';
         it('should handle string data',
